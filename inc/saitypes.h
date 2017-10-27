@@ -589,7 +589,7 @@ typedef struct _sai_acl_resource_t
     sai_acl_bind_point_type_t bind_point;
 
     /** Available number of entries */
-    sai_uint32_t entries;
+    sai_uint32_t avail_num;
 
 } sai_acl_resource_t;
 
@@ -608,6 +608,7 @@ typedef struct _sai_acl_resource_list_t
     sai_acl_resource_t *list;
 
 } sai_acl_resource_list_t;
+
 /**
  * @brief Segment Routing Tag Length Value Types
  */
@@ -712,6 +713,7 @@ typedef union _sai_attribute_value_t
     sai_acl_field_data_t aclfield;
     sai_acl_action_data_t aclaction;
     sai_acl_capability_t aclcapability;
+    sai_acl_resource_list_t aclresource;
     sai_tlv_list_t tlvlist;
     sai_segment_list_t segmentlist;
 
