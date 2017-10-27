@@ -543,6 +543,72 @@ typedef struct _sai_acl_capability_t
 } sai_acl_capability_t;
 
 /**
+ * @brief Attribute data for SAI_ACL_TABLE_ATTR_STAGE
+ */
+typedef enum _sai_acl_stage_t
+{
+    /** Ingress Stage */
+    SAI_ACL_STAGE_INGRESS,
+
+    /** Egress Stage */
+    SAI_ACL_STAGE_EGRESS,
+
+} sai_acl_stage_t;
+
+/**
+ * @brief Attribute data for SAI_ACL_TABLE_ATTR_BIND_POINT
+ */
+typedef enum _sai_acl_bind_point_type_t
+{
+    /** Bind Point Type Port */
+    SAI_ACL_BIND_POINT_TYPE_PORT,
+
+    /** Bind Point Type LAG */
+    SAI_ACL_BIND_POINT_TYPE_LAG,
+
+    /** Bind Point Type VLAN */
+    SAI_ACL_BIND_POINT_TYPE_VLAN,
+
+    /** Bind Point Type RIF */
+    SAI_ACL_BIND_POINT_TYPE_ROUTER_INTF,
+
+    /** Bind Point Type Switch */
+    SAI_ACL_BIND_POINT_TYPE_SWITCH
+
+} sai_acl_bind_point_type_t;
+
+/**
+ * @brief Structure for ACL Resource Count
+ */
+typedef struct _sai_acl_resource_t
+{
+    /** ACL stage */
+    sai_acl_stage_t stage;
+
+    /** ACL Bind point */
+    sai_acl_bind_point_type_t bind_point;
+
+    /** Available number of entries */
+    sai_uint32_t entries;
+
+} sai_acl_resource_t;
+
+/**
+ * @brief List of available ACL resources at each stage and
+ * each binding point. This shall be returned when queried for
+ * SAI_SWITCH_ATTR_AVAILABLE_ACL_TABLE or
+ * SAI_SWITCH_ATTR_AVAILABLE_ACL_TABLE_GROUP
+ */
+typedef struct _sai_acl_resource_list_t
+{
+    /** Number of entries */
+    sai_uint32_t count;
+
+    /** Resource list */
+    sai_acl_resource_t *list;
+
+} sai_acl_resource_list_t;
+/**
  * @brief Segment Routing Tag Length Value Types
  */
 typedef enum _sai_tlv_type_t
