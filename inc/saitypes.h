@@ -602,7 +602,7 @@ typedef struct _sai_acl_resource_t
 typedef struct _sai_acl_resource_list_t
 {
     /** Number of entries */
-    sai_uint32_t count;
+    uint32_t count;
 
     /** Resource list */
     sai_acl_resource_t *list;
